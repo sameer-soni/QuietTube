@@ -16,5 +16,19 @@
     },
     "default_title": "QuietTube",
     "default_popup": "popup.html"
-  }
+  },
+  "host_permissions": [
+    "https://www.youtube.com/*"
+  ],
+  "permissions": [
+    "storage",
+    "tabs",
+    "activeTab"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["content_script.js"]
+    }
+  ]
 }
