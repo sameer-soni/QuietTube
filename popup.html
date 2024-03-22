@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QuietTube</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/src/output.css">
+</head>
+<body class="w-[400px] h-[400px] bg-primary">
+
+    <div class="py-4 px-4 border-b border-b-[#FFFFFF] border-opacity-10">
+        <h3 class="text-white text-[18px] font-extrabold">QuietTube</h3>
+        <p class="text-white text-opacity-55">version 1.0.0</p>
+    </div>
+    <div class="py-8 px-4 border-b border-b-[#FFFFFF] border-opacity-10">
+       <p class="font-bold text-white">OPTIONS</p>
+        <div class="py-4 grid  grid-cols-2">
+            <div class="flex flex-row items-center justify-center gap-x-2">
+            <!-- Enabled: "bg-indigo-600", Not Enabled: "bg-gray-200" -->
+            <button type="button" class="bg-secondary relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2" role="switch" aria-checked="false">
+                <span class="sr-only">Use setting</span>
+                <!-- Enabled: "translate-x-5", Not Enabled: "translate-x-0" -->
+                <span aria-hidden="true" class="translate-x-5 pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span>
+            </button>
+            <p class="text-white">Hide Notification Bell</p>
+            </div>
+            <div class="flex flex-row items-center justify-center gap-x-2">
+                <!-- Enabled: "bg-secondary", Not Enabled: "bg-gray-200" -->
+                <button type="button" class="bg-gray-200 relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" role="switch" aria-checked="false">
+                    <span class="sr-only">Use setting</span>
+                    <!-- Enabled: "translate-x-5", Not Enabled: "translate-x-0" -->
+                    <span aria-hidden="true" class="translate-x-0 pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span>
+                </button>
+                <p class="text-white">Hide Notification Bell</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
