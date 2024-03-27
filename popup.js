@@ -1,5 +1,3 @@
-//
-chrome.storage.local.set({ feed: true });
 const optionsSelectors = document.querySelectorAll(".options-selector");
 optionsSelectors.forEach(el => {
     const button = el;
@@ -17,8 +15,7 @@ optionsSelectors.forEach(el => {
         button.classList.toggle("bg-secondary")
         toggleDot.classList.toggle("translate-x-5");
         toggleDot.ariaHidden = toggleDot.ariaHidden === "true" ? "false" : "true"
-        // chrome.storage.local.set({ feed: false });
-        console.log("Hello")
+        chrome.storage.local.set({ feed: toggleDot.ariaHidden === "true" });
     })
 })
 //
