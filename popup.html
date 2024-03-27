@@ -10,14 +10,13 @@
     <link rel="stylesheet" href="/src/output.css">
 </head>
 <body class="w-[400px] h-[400px] bg-primary">
-
     <div class="py-4 px-4 border-b border-b-[#FFFFFF] border-opacity-10">
         <h3 class="text-white text-[18px] font-extrabold">QuietTube</h3>
         <p class="text-white text-opacity-55">version 1.0.0</p>
     </div>
     <div class="py-8 px-4 border-b border-b-[#FFFFFF] border-opacity-10">
        <p class="font-bold text-white">OPTIONS</p>
-        <div class="py-4 grid  grid-cols-2">
+        <div class="py-4 grid  grid-cols-2 gap-y-4 gap-x-6">
             <div class="flex flex-row items-center justify-start gap-x-2">
             <!-- Enabled: "bg-indigo-600", Not Enabled: "bg-gray-200" -->
             <button name="hide-notifications"  type="button" class="options-selector bg-gray-200 relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none  focus:ring-0" role="switch" aria-checked="false">
@@ -26,7 +25,7 @@
             </button>
             <p class="text-white">Hide Notification Bell</p>
             </div>
-            <div class="flex flex-row items-center justify-center gap-x-2">
+            <div class="flex flex-row items-center justify-start gap-x-2">
                 <!-- Enabled: "bg-secondary", Not Enabled: "bg-gray-200" -->
                 <button name="hide-feed" type="button" class=" options-selector bg-gray-200 relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-0" role="switch" aria-checked="false">
 
@@ -34,6 +33,24 @@
                     <span aria-hidden="false" class="translate-x-0 pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span>
                 </button>
                 <p class="text-white">Hide Feed</p>
+            </div>
+            <div class="flex flex-row items-center justify-start gap-x-2">
+                <!-- Enabled: "bg-secondary", Not Enabled: "bg-gray-200" -->
+                <button name="hide-subscriptions" type="button" class=" options-selector bg-gray-200 relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-0" role="switch" aria-checked="false">
+
+                    <!-- Enabled: "translate-x-5", Not Enabled: "translate-x-0" -->
+                    <span aria-hidden="false" class="translate-x-0 pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span>
+                </button>
+                <p class="text-white">Hide Subscriptions</p>
+            </div>
+            <div class="flex flex-row items-center justify-start gap-x-2">
+                <!-- Enabled: "bg-secondary", Not Enabled: "bg-gray-200" -->
+                <button name="hide-tags" type="button" class=" options-selector bg-gray-200 relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-0" role="switch" aria-checked="false">
+
+                    <!-- Enabled: "translate-x-5", Not Enabled: "translate-x-0" -->
+                    <span aria-hidden="false" class="translate-x-0 pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span>
+                </button>
+                <p class="text-white">Hide Tags</p>
             </div>
         </div>
     </div>

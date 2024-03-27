@@ -18,6 +18,22 @@ optionsSelectors.forEach(el => {
                 toggleDot.ariaHidden = "true"
             }
         })
+    } else if (button.name === "hide-subscriptions") {
+        chrome.storage.local.get("subscriptions", function (data) {
+            if (data.subscriptions === true) {
+                button.classList.toggle("bg-secondary")
+                toggleDot.classList.toggle("translate-x-5")
+                toggleDot.ariaHidden = "true"
+            }
+        })
+    } else if (button.name === "hide-tags") {
+        chrome.storage.local.get("tags", function (data) {
+            if (data.tags === true) {
+                button.classList.toggle("bg-secondary")
+                toggleDot.classList.toggle("translate-x-5")
+                toggleDot.ariaHidden = "true"
+            }
+        })
     }
     button.addEventListener("click", function () {
         chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
@@ -29,6 +45,12 @@ optionsSelectors.forEach(el => {
                 chrome.tabs.sendMessage(tabs[0].id, { message: button.name });
             } else if (button.name === "hide-feed") {
                 chrome.storage.local.set({ feed: toggleDot.ariaHidden === "true" });
+                chrome.tabs.sendMessage(tabs[0].id, { message: button.name });
+            } else if (button.name === "hide-subscriptions") {
+                chrome.storage.local.set({ subscriptions: toggleDot.ariaHidden === "true" });
+                chrome.tabs.sendMessage(tabs[0].id, { message: button.name });
+            } else if (button.name === "hide-tags") {
+                chrome.storage.local.set({ tags: toggleDot.ariaHidden === "true" });
                 chrome.tabs.sendMessage(tabs[0].id, { message: button.name });
             }
         })
