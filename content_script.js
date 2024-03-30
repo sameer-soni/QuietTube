@@ -1,8 +1,10 @@
 const contentElement = document.querySelector("#contents");
-const notificationButton = document.querySelector(".yt-spec-icon-badge-shape__icon")
+const notificationButton = document.querySelector(".yt-spec-icon-badge-shape__icon");
 
-// div with #item id is child of #section div but not direct child
-const subscriptionElement = document.querySelector("#sections #items")
+// hide subscitpion
+const subscriptionElement = document.querySelectorAll("#sections #items")[1];
+// hide tags
+const tagsElement = document.querySelector("#chips-wrapper");
 
 chrome.storage.local.get("feed", function(data) {
     if (data.feed === true) {
@@ -28,6 +30,14 @@ chrome.storage.local.get("subscriptions", function(data) {
     }
 })
 
+chrome.storage.local.get("tags", function(data) {
+    if (data.tags === true) {
+        if (tagsElement) {
+            tagsElement.style.display = "none";
+        }
+    }
+})
+
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     if (request.message === "hide-feed") {
         contentElement.style.display = contentElement.style.display === "none" ? "block" : "none";
@@ -37,5 +47,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
         notificationButton.style.display = notificationButton.style.display === "none" ? "block" : "none";
     }else if(request.message === "hide-subscriptions"){
         subscriptionElement.style.display = subscriptionElement.style.display === "none" ? "block" : "none"
+    }else if(request.message === "hide-tags"){
+        tagsElement.style.display = tagsElement.style.display === "none" ? "block" : "none"
     }
 });
