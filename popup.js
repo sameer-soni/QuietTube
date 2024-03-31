@@ -34,7 +34,32 @@ optionsSelectors.forEach(el => {
                 toggleDot.ariaHidden = "true"
             }
         })
+    } else if (button.name === "hide-recommended_videos") {
+        chrome.storage.local.get("recommended_videos", function (data) {
+            if (data.recommended_videos === true) {
+                button.classList.toggle("bg-secondary")
+                toggleDot.classList.toggle("translate-x-5")
+                toggleDot.ariaHidden = "true"
+            }
+        })
+    } else if (button.name === "hide-comments") {
+        chrome.storage.local.get("comments", function (data) {
+            if (data.comments === true) {
+                button.classList.toggle("bg-secondary")
+                toggleDot.classList.toggle("translate-x-5")
+                toggleDot.ariaHidden = "true"
+            }
+        })
+    } else if (button.name === "hide-description") {
+        chrome.storage.local.get("description", function (data) {
+            if (data.description === true) {
+                button.classList.toggle("bg-secondary")
+                toggleDot.classList.toggle("translate-x-5")
+                toggleDot.ariaHidden = "true"
+            }
+        })
     }
+
     button.addEventListener("click", function () {
         chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
             button.classList.toggle("bg-secondary")
@@ -51,6 +76,15 @@ optionsSelectors.forEach(el => {
                 chrome.tabs.sendMessage(tabs[0].id, { message: button.name });
             } else if (button.name === "hide-tags") {
                 chrome.storage.local.set({ tags: toggleDot.ariaHidden === "true" });
+                chrome.tabs.sendMessage(tabs[0].id, { message: button.name });
+            } else if (button.name === "hide-recommended_videos") {
+                chrome.storage.local.set({ recommended_videos: toggleDot.ariaHidden === "true" });
+                chrome.tabs.sendMessage(tabs[0].id, { message: button.name });
+            } else if (button.name === "hide-comments") {
+                chrome.storage.local.set({ comments: toggleDot.ariaHidden === "true" });
+                chrome.tabs.sendMessage(tabs[0].id, { message: button.name });
+            } else if (button.name === "hide-description") {
+                chrome.storage.local.set({ description: toggleDot.ariaHidden === "true" });
                 chrome.tabs.sendMessage(tabs[0].id, { message: button.name });
             }
         })
