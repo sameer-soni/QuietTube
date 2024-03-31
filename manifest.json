@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "QuietTube",
   "version": "1.0.0",
-  "description": "Escape distractions on YouTube with QuietTube. This extension simplifies your YouTube experience by hiding recommended videos, comments, and distractions, allowing you to focus on the content you choose to watch.",
+  "description": "This extension simplifies your YouTube experience by hiding recommended videos, comments, and distractions, allowing you to focus on the content you choose to watch.",
   "icons": {
     "16": "16x16.png",
     "48": "48x48.png",

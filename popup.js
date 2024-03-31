@@ -18,9 +18,9 @@ optionsSelectors.forEach(el => {
                 toggleDot.ariaHidden = "true"
             }
         })
-    } else if (button.name === "hide-subscriptions") {
-        chrome.storage.local.get("subscriptions", function (data) {
-            if (data.subscriptions === true) {
+    } else if (button.name === "hide-side-panel") {
+        chrome.storage.local.get("sidePanel", function (data) {
+            if (data.sidePanel === true) {
                 button.classList.toggle("bg-secondary")
                 toggleDot.classList.toggle("translate-x-5")
                 toggleDot.ariaHidden = "true"
@@ -46,8 +46,8 @@ optionsSelectors.forEach(el => {
             } else if (button.name === "hide-feed") {
                 chrome.storage.local.set({ feed: toggleDot.ariaHidden === "true" });
                 chrome.tabs.sendMessage(tabs[0].id, { message: button.name });
-            } else if (button.name === "hide-subscriptions") {
-                chrome.storage.local.set({ subscriptions: toggleDot.ariaHidden === "true" });
+            } else if (button.name === "hide-side-panel") {
+                chrome.storage.local.set({ sidePanel: toggleDot.ariaHidden === "true" });
                 chrome.tabs.sendMessage(tabs[0].id, { message: button.name });
             } else if (button.name === "hide-tags") {
                 chrome.storage.local.set({ tags: toggleDot.ariaHidden === "true" });
