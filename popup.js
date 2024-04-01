@@ -1,3 +1,5 @@
+// import strt from './content_script';
+
 const optionsSelectors = document.querySelectorAll(".options-selector");
 optionsSelectors.forEach(el => {
     const button = el;
@@ -8,6 +10,7 @@ optionsSelectors.forEach(el => {
                 button.classList.toggle("bg-secondary")
                 toggleDot.classList.toggle("translate-x-5")
                 toggleDot.ariaHidden = "true"
+                chrome.tabs.sendMessage(tabs[0].id, { message: "updateStorage", key: button.name, value: toggleDot.ariaHidden === "true" });
             }
         })
     } else if (button.name === "hide-notifications") {
@@ -16,6 +19,7 @@ optionsSelectors.forEach(el => {
                 button.classList.toggle("bg-secondary")
                 toggleDot.classList.toggle("translate-x-5")
                 toggleDot.ariaHidden = "true"
+                chrome.tabs.sendMessage(tabs[0].id, { message: "updateStorage", key: button.name, value: toggleDot.ariaHidden === "true" });
             }
         })
     } else if (button.name === "hide-side-panel") {
@@ -24,6 +28,7 @@ optionsSelectors.forEach(el => {
                 button.classList.toggle("bg-secondary")
                 toggleDot.classList.toggle("translate-x-5")
                 toggleDot.ariaHidden = "true"
+                chrome.tabs.sendMessage(tabs[0].id, { message: "updateStorage", key: button.name, value: toggleDot.ariaHidden === "true" });
             }
         })
     } else if (button.name === "hide-tags") {
@@ -32,6 +37,7 @@ optionsSelectors.forEach(el => {
                 button.classList.toggle("bg-secondary")
                 toggleDot.classList.toggle("translate-x-5")
                 toggleDot.ariaHidden = "true"
+                chrome.tabs.sendMessage(tabs[0].id, { message: "updateStorage", key: button.name, value: toggleDot.ariaHidden === "true" });
             }
         })
     } else if (button.name === "hide-recommended_videos") {
@@ -40,6 +46,7 @@ optionsSelectors.forEach(el => {
                 button.classList.toggle("bg-secondary")
                 toggleDot.classList.toggle("translate-x-5")
                 toggleDot.ariaHidden = "true"
+                chrome.tabs.sendMessage(tabs[0].id, { message: "updateStorage", key: button.name, value: toggleDot.ariaHidden === "true" });
             }
         })
     } else if (button.name === "hide-comments") {
@@ -48,6 +55,7 @@ optionsSelectors.forEach(el => {
                 button.classList.toggle("bg-secondary")
                 toggleDot.classList.toggle("translate-x-5")
                 toggleDot.ariaHidden = "true"
+                chrome.tabs.sendMessage(tabs[0].id, { message: "updateStorage", key: button.name, value: toggleDot.ariaHidden === "true" });
             }
         })
     } else if (button.name === "hide-description") {
@@ -56,6 +64,7 @@ optionsSelectors.forEach(el => {
                 button.classList.toggle("bg-secondary")
                 toggleDot.classList.toggle("translate-x-5")
                 toggleDot.ariaHidden = "true"
+                chrome.tabs.sendMessage(tabs[0].id, { message: "updateStorage", key: button.name, value: toggleDot.ariaHidden === "true" });
             }
         })
     }
@@ -68,24 +77,41 @@ optionsSelectors.forEach(el => {
             if (button.name === "hide-notifications") {
                 chrome.storage.local.set({ notifications: toggleDot.ariaHidden === "true" });
                 chrome.tabs.sendMessage(tabs[0].id, { message: button.name });
+                chrome.tabs.sendMessage(tabs[0].id, { message: "runContentScript" });
             } else if (button.name === "hide-feed") {
+                // strt()
                 chrome.storage.local.set({ feed: toggleDot.ariaHidden === "true" });
+                
                 chrome.tabs.sendMessage(tabs[0].id, { message: button.name });
+                chrome.tabs.sendMessage(tabs[0].id, { message: "runContentScript" });
             } else if (button.name === "hide-side-panel") {
                 chrome.storage.local.set({ sidePanel: toggleDot.ariaHidden === "true" });
+                
                 chrome.tabs.sendMessage(tabs[0].id, { message: button.name });
+                chrome.tabs.sendMessage(tabs[0].id, { message: "runContentScript" });
             } else if (button.name === "hide-tags") {
                 chrome.storage.local.set({ tags: toggleDot.ariaHidden === "true" });
+                
                 chrome.tabs.sendMessage(tabs[0].id, { message: button.name });
+                chrome.tabs.sendMessage(tabs[0].id, { message: "runContentScript" });
             } else if (button.name === "hide-recommended_videos") {
                 chrome.storage.local.set({ recommended_videos: toggleDot.ariaHidden === "true" });
+                
+                
                 chrome.tabs.sendMessage(tabs[0].id, { message: button.name });
+                chrome.tabs.sendMessage(tabs[0].id, { message: "runContentScript" });
             } else if (button.name === "hide-comments") {
+                
+                // strt();
                 chrome.storage.local.set({ comments: toggleDot.ariaHidden === "true" });
                 chrome.tabs.sendMessage(tabs[0].id, { message: button.name });
+                chrome.tabs.sendMessage(tabs[0].id, { message: "runContentScript" });             
+                
             } else if (button.name === "hide-description") {
                 chrome.storage.local.set({ description: toggleDot.ariaHidden === "true" });
+                
                 chrome.tabs.sendMessage(tabs[0].id, { message: button.name });
+                chrome.tabs.sendMessage(tabs[0].id, { message: "runContentScript" });
             }
         })
 
