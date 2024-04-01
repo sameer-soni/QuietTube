@@ -188,9 +188,7 @@ function strt(){
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     if (request.message === "runContentScript") {
+        console.log('starting strt()');
         strt();
-    } else if (request.message === "updateStorage") {
-        // Update the storage value based on the request
-        chrome.storage.local.set({ [request.key]: request.value });
     }
 });
